@@ -1,0 +1,11 @@
+port: "8087"
+tube:
+    # url: amqp://guest:guest@localhost:5672/
+    url: localhost:9092
+    queue: image_resize
+tasks:
+    image_resize: http://localhost:8081/intapi/v1/form/resize_worker
+
+workers_count: 3
+max_retry_attempts: 5
+initial_retry: 1
